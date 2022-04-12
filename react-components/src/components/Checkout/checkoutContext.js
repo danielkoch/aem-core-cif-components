@@ -32,6 +32,9 @@ export const initialCheckoutState = {
     braintreeToken: false
 };
 
+/**
+ * @deprecated replace with peregrine backed component, will be removed with CIF 3.0 latest
+ */
 export const checkoutReducer = (state, action) => {
     switch (action.type) {
         case 'beginCheckout':
@@ -129,8 +132,14 @@ export const checkoutReducer = (state, action) => {
     }
 };
 
+/**
+ * @deprecated replace with peregrine backed component, will be removed with CIF 3.0 latest
+ */
 export const CheckoutContext = createContext();
 
+/**
+ * @deprecated replace with peregrine backed component, will be removed with CIF 3.0 latest
+ */
 export const CheckoutProvider = props => {
     const reducer = props.reducer || checkoutReducer;
     const initialState = props.initialState || initialCheckoutState;
@@ -154,4 +163,7 @@ CheckoutProvider.propTypes = {
     })
 };
 
+/**
+ * @deprecated replace with peregrine backed component, will be removed with CIF 3.0 latest
+ */
 export const useCheckoutState = () => useContext(CheckoutContext);

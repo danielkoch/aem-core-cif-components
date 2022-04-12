@@ -23,10 +23,13 @@ const externals = Object.keys(pkg.peerDependencies)
     .reduce((obj, key) => ({ ...obj, [key]: `commonjs ${key}`}), {});
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src') + '/index.js',
+    entry: {
+        'index': path.resolve(__dirname, 'src') + '/index.js',
+        'peregrine': path.resolve(__dirname, 'src') + '/peregrine.js',
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
+        filename: '[name].js',
         libraryTarget: 'umd',
         library: libraryName,
         umdNamedDefine: true,
